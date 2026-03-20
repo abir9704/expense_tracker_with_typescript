@@ -4,12 +4,16 @@ import React, { useState } from 'react';
 
 const ExpenseTrack = () => {
 
-  interface moneytrace{
+  // interface moneytrace{
 
-    dollar:number;
+  //   dollar:number;
 
-  }
- const [allmoney,setallmoney]=useState<number>(0);
+  // }
+const [money, setallmoney] = useState<number[]>([]);
+const [texts, setTexts] = useState<string[]>([]);
+const [taka, setTaka] = useState<number>(0);
+
+
 
    const handlesubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     // you have to tell ts that it is a formevent type
@@ -21,6 +25,8 @@ const ExpenseTrack = () => {
   // get input values safely using name
   const titled = (form.elements.namedItem("title") as HTMLInputElement).value;
 
+  setTexts([...texts,titled]);
+
   
 
   // eita je input element setao ts ke janai dite hocche
@@ -29,6 +35,8 @@ const ExpenseTrack = () => {
   const dollar = parseFloat(
     (form.elements.namedItem("money") as HTMLInputElement).value
   );
+setallmoney([...money, dollar]); 
+setTaka(prev=>prev+dollar);
 
   // validation
   if (!titled || isNaN(dollar) || dollar <= 0) {
@@ -81,9 +89,70 @@ const ExpenseTrack = () => {
 
                     </div>
 
+                    <div className='flex gap-10 '>
+
+
+                         <div className='text-white text-[24px]'>
+                      {
+                        texts.map((singletext,index)=>{
+                          return(
+                            <div key={index}>
+
+                              <p>{singletext}</p>
+
+
+                            </div>
+                          )
+                        }
+                        )
+                      }
+                    </div>
+
+                             <div className='text-white text-[24px] '>
+                      {
+                        money.map((singlemoney,index)=>{
+                          return(
+                            <div key={index}>
+
+                              <p>{singlemoney}</p>
+
+                  
+
+
+                            </div>
+                          )
+                        }
+                        )
+                      }
+                  <div className=''> 
+
+                           {
+                      taka > 0 &&  <p className='text-white text-2xl '>{taka}</p>
+                    }
+
+
+                  </div>
+                                    
+                 
+                    </div>
+
+                 
+
+                  
+
+
+                    </div>
+
+                   
+                    
+
+                   
+
+                
               
 
                 </form>
+                
             
 
             </div>
