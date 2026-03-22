@@ -14,16 +14,33 @@ type Job = {
 const Joblist = () => {
   const [jobitems, setjobitems] = useState<Job[]>([]);
 
+  const [jobitems2, setjobitems2] = useState<Job[]>([]);
+
+
+
 
   const findingmachine=(e)=>{
     console.log("it's working", e.target.value);
     let word= e.target.value;
 
-      const filtered = jobitems.filter(jobs =>
+       if(word==""){
+    setjobitems(jobitems2);
+    return;
+   }
+
+
+      const filtered = jobitems2.filter(jobs =>
     jobs.title.toLowerCase().includes(word.toLowerCase())
    );
 
+  
+   
+
    setjobitems(filtered);
+
+ 
+
+   
 }
 
   useEffect(() => {
@@ -31,6 +48,7 @@ const Joblist = () => {
       .then((res) => res.json())
       .then((data) => {
         setjobitems(data);
+        setjobitems2(data);
       });
   }, []);
 
