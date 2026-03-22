@@ -18,39 +18,43 @@ const Joblist = () => {
 
 
 
+const findingmachine = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const word = e.target.value;
 
-  const findingmachine=(e)=>{
-    console.log("it's working", e.target.value);
-    let word= e.target.value;
+  console.log("it's working", word);
 
-       if(word==""){
+  if (word === "") {
     setjobitems(jobitems2);
     return;
-   }
+  }
 
-
-      const filtered = jobitems2.filter(jobs =>
+  const filtered = jobitems2.filter((jobs) =>
     jobs.title.toLowerCase().includes(word.toLowerCase())
-   );
+  );
 
-  
-   
-
-   setjobitems(filtered);
-
- 
-
-   
-}
+  setjobitems(filtered);
+};
 
   useEffect(() => {
     fetch("/Jobs.json")
       .then((res) => res.json())
-      .then((data) => {
+      .then((data:Job[]) => {
         setjobitems(data);
         setjobitems2(data);
       });
   }, []);
+
+//   useEffect(() => {
+//   const fetchJobs = async () => {
+//     const res = await fetch("/Jobs.json");
+//     const data: Job[] = await res.json();
+
+//     setjobitems(data);
+//     setjobitems2(data);
+//   };
+
+//   fetchJobs();
+// }, []);
 
   return (
     <div className="bg-gray-100 min-h-screen p-10">
