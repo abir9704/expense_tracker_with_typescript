@@ -1,0 +1,16 @@
+[
+  { "id": "1", "category": "Frontend", "salary": 5000, "type": "remote" },
+  { "id": "2", "category": "Backend", "salary": 6500, "type": "onsite" },
+  { "id": "3", "category": "Fullstack", "salary": 7000, "type": "remote" },
+  { "id": "4", "category": "Frontend", "salary": 4800, "type": "onsite" },
+  { "id": "5", "category": "Backend", "salary": 6200, "type": "remote" },
+  { "id": "6", "category": "DevOps", "salary": 8000, "type": "remote" },
+  { "id": "7", "category": "Data Science", "salary": 9000, "type": "onsite" },
+  { "id": "8", "category": "Fullstack", "salary": 7500, "type": "onsite" },
+  { "id": "9", "category": "Frontend", "salary": 5300, "type": "remote" },
+  { "id": "10", "category": "Backend", "salary": 6700, "type": "onsite" },
+  { "id": "11", "category": "DevOps", "salary": 8200, "type": "onsite" },
+  { "id": "12", "category": "Data Science", "salary": 8800, "type": "remote" },
+  { "id": "13", "category": "Fullstack", "salary": 7200, "type": "remote" },
+  { "id": "14", "category": "Frontend", "salary": 5100, "type": "onsite" }
+]

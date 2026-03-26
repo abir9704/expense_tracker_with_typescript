@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Joblist from './Joblist';
 
 
 
+
 const Joblistpage = () => {
+   
     return (
         <div>
 
-            <Joblist></Joblist>
+           <Joblist></Joblist>
             
         </div>
     );
