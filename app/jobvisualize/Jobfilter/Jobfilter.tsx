@@ -59,6 +59,14 @@ const Jobfilter = () => {
 
       });
   }, []);
+
+  const filteredJobs = jobs.filter((job) => {
+    return Object.entries(filterState).every(([key, value]) => {
+      if (!value) return true;
+      if (key === "salary") return job.salary >= value;
+      return job[key as keyof Job] === value;
+    });
+  });
        
   
     
